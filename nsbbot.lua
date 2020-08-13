@@ -1,15 +1,5 @@
---// Args + Command
-local Command = "{args:0}"
-local Args = "{args:1}"
-local PersonID = "{id}"
-
 --// It's the version you ding dong
 local Version = "URMOM.1.2"
-
---// Random Numbers
-local GeneralRange = tonumber("{range:1|59}")
-local JokeRange = tonumber("{range:1|11}")
-local CMDRandom = tonumber("{range:1|4}")
 
 --// Master table of Insults!
 local Tab = {
@@ -69,9 +59,11 @@ local Commands; Commands = {
     [1] = {
         Alias = {"insult"; "insultperson";};
         Desc = "Insult a person! YEET!!!";
-        Function = function(Person)
-            if Person ~= "" then
-                print(Person .. " is a mother fucking ".. Tab.General[GeneralRange])
+        Function = function(Args)
+            if Args[1] ~= "" then
+                print(Args[1] .. " is a mother fucking ".. Tab.General[GeneralRange])
+            ekse
+                print("You are a mother fucking ".. Tab.General[GeneralRange])
             end
         end;
     };
@@ -96,7 +88,7 @@ local Commands; Commands = {
         Alias = {"help"; "wtf"; "howdoi"; "why"; "comeonlol";};
         Desc = "What do you think it does idiot";
         Function = function()
-            print("~~ Commands below! ~~")
+            print("- Commands below! -")
 
             for Index, CMD in pairs(Commands) do
                 local Str = ""
@@ -108,7 +100,7 @@ local Commands; Commands = {
                 print(Str)
             end
 
-            print("~~ Commands Done! ~~")
+            print("- Commands Done! -")
         end;
     };
 };
@@ -145,8 +137,18 @@ local Serve = function(String)
     for String in string.gmatch(String, "%w+%p*%s-") do
         table.insert(Args, String)
     end
+
+    local New = {}
+    local Index = 0
+    for _, Arg in pairs(Args) do
+        if Index ~= 0 then
+            New[Index] = Arg
+        end
+
+        Index = Index + 1
+    end
     
-    return Args
+    return New
 end
 
 --// Do it
