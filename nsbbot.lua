@@ -1,5 +1,5 @@
 --// It's the version you ding dong
-local Version = "URMOM.1.3"
+local Version = "URMOM.1.4"
 
 --// Master table of Insults!
 local Tab = {
@@ -62,7 +62,7 @@ local Commands; Commands = {
         Function = function(Args)
             if Args[1] ~= "" then
                 print(Args[1] .. " is a mother fucking ".. Tab.General[GeneralRange])
-            ekse
+            else
                 print("You are a mother fucking ".. Tab.General[GeneralRange])
             end
         end;
