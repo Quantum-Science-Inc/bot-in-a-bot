@@ -97,7 +97,8 @@ end
 
 do
     print("Ranin?")
-    
+    print("Gat")
+
     local Attempted = GetCMD(CMD)
 
     if string.lower(CMD) == "ran" or string.lower(CMD) == "random" then
