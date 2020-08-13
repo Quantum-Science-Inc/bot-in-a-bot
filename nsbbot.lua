@@ -1,17 +1,26 @@
 --// Args + Command
 local Command = "{args:0}"
-local One = "{args:1}"
+local Args = "{args:1}"
+local PersonID = "{id}"
 
-local Version = "URMOM.1.1"
+--// It's the version you ding dong
+local Version = "URMOM.1.2"
 
 --// Random Numbers
-local GeneralRange = tonumber("{range:1|60}")
+local GeneralRange = tonumber("{range:1|59}")
+local JokeRange = tonumber("{range:1|11}")
 local CMDRandom = tonumber("{range:1|4}")
 
 --// Master table of Insults!
 local Tab = {
     General = {};
     UrMom = {};
+    Jokes = {};
+}
+
+--// Admins
+local Admins = {
+
 }
 
 --// I know I could have just added the Indexes but oh well
@@ -31,52 +40,86 @@ Inject(Tab.General, "TONE DEAF SHART GOBLIN", "SLIMY SPHINCTER CLOWN", "WH1TE TR
 "yeast-tainted mulemelon", "zit-limbed bongdiddler", "weenerplug", "muffsocket", "quim-spotted slotbreeder", "apesponge", 
 "camel-headed butterpoacher", "cumhugger", "tiny-tiny-wanged", "DRUG-LOVING ASS JOCKEY", "PIE-EATING PRICK HAMMER", "DRUG-LOVING C0CK CLOWN", "JACKALOPE SHIT TOOLBAG", "SLUTTY B0NER GOBLIN")
 
+--// Jokes LMAOOOOOO SO FUNNY HEHE ECKS DEE
+Inject(Tab.Jokes, "My friend thinks he is smart. He told me an onion is the only food that makes you cry, so I threw a coconut at his face.", 
+[[Whenever your ex says, "You'll never find someone like me," the answer to that is, "That's the point."]], 
+[[A teacher wanted to teach her students about self-esteem, so she asked anyone who thought they were stupid to stand up. One kid stood up and the teacher was surprised. She didn’t think anyone would stand up so she asked him, “Why did you stand up?” He answered, “I didn’t want to leave you standing up by yourself.”]],
+[[Girlfriend: "Am I pretty or ugly?"\nBoyfriend: "You're both."\nGirlfriend: "What do you mean?"\nBoyfriend: "You're pretty ugly."]],
+[[Q: Is Google male or female?\nA: Female, because it doesn't let you finish a sentence before making a suggestion.]],
+[[As an airplane is about to crash, a female passenger jumps up frantically and announces, "If I'm going to die, I want to die feeling like a woman." She removes all her clothing and asks, "Is there someone on this plane who is man enough to make me feel like a woman?" A man stands up, removes his shirt and says, "Here, iron this!".]],
+[[A man asks, “God, why did you make woman so beautiful?” God responded, ”So you would love her.” The man asks, “But God, why did you make her so dumb?” God replied, “So she would love you.”]],
+[[LUA:1 Bad Allocation NSD]],
+[[Yo Mama is so dumb… she went to the dentist to get a Bluetooth.]],
+[[Yo mama's so fat, it took me two buses and a train to get to her good side.]],
+[[Yo mama's so fat, her car has stretch marks.]])
+
+--// Join the Args if split
+local Join = function(Table)
+    local Str = ""
+
+    for Index, Value in pairs(Table) do
+        Str = Str .. tostring(Value)
+    end
+
+    return Str
+end
+
+--// Table of Commands
 local Commands; Commands = {
     [1] = {
-        A = {"any", "most", "what"};
-        F = function()
-            print("Fart nigga he")
+        Alias = {"insult"; "insultperson";};
+        Desc = "Insult a person! YEET!!!";
+        Function = function(Person)
+            if Person ~= "" then
+                print(Person .. " is a mother fucking ".. Tab.General[GeneralRange])
+            end
         end;
     };
 
     [2] = {
-        A = {"whatversion";};
-        F = function()
+        Alias = {"whatversion"; "version";};
+        Desc = "What do you think it does idiot";
+        Function = function()
             print("Current version is " .. Version .. " you fuck wit")
         end;
     };
 
     [3] = {
-        A = {"tellmeajoke";};
-        F = function()
-            print("Test")
+        Alias = {"tellmeajoke"; "joke";"dispensejokeslave";"doit";"dothething";};
+        Desc = "What do you think it does idiot";
+        Function = function()
+            print(Person .. " is a mother fucking ".. Tab.General[JokeRange])
         end;
     };
 
     [4] = {
-        A = {"help"; "wtf"};
-        F = function()
-            print("Commands below!")
+        Alias = {"help"; "wtf"; "howdoi"; "why"; "comeonlol";};
+        Desc = "What do you think it does idiot";
+        Function = function()
+            print("~~ Commands below! ~~")
 
             for Index, CMD in pairs(Commands) do
-                local Str = "Command;"
+                local Str = ""
+                
+                for Index, Element in pairs(CMD.Alias) do Str = Str .. " <"..Element..">" end
 
-                table.foreach(CMD.A, function(Index, Element) Str = Str .. " " .. Element end)
+                Str = Str .. " - " .. CMD.Desc
 
                 print(Str)
             end
 
-            print("Done!")
+            print("~~ Commands Done! ~~")
         end;
     };
 };
 
-local GetCMD = function(St)
-    St = string.lower(St)
+--// Get and match command to Alias
+local GetCMD = function(String)
+    String = string.lower(String)
 
-    local Search = function(Table, St)
-        for NA, Str in pairs(Table.A) do
-            if Str == St then
+    local Search = function(Table)
+        for NA, Str in pairs(Table.Alias) do
+            if Str == String then
                 return true
             end
         end
@@ -85,23 +128,35 @@ local GetCMD = function(St)
     end
 
     for Num, CMD in pairs(Commands) do
-        local Find = Search(CMD, St)
+        local Find = Search(CMD)
 
         if Find == true then
-            return true
+            return CMD
         end
     end
 
     return nil
 end
 
+--// Split the args
+local Serve = function(String)
+    local Args = {}
+
+    for String in string.gmatch(String, "%w+%p*%s-") do
+        table.insert(Args, String)
+    end
+    
+    return Args
+end
+
+--// Do it
+Args = Serve(Args)
+
+--// Parse Command
 do
-    print("Ranin?")
-    print("Gat")
+    local Attempted = GetCMD(Command)
 
-    local Attempted = GetCMD(CMD)
-
-    if string.lower(CMD) == "ran" or string.lower(CMD) == "random" then
+    if string.lower(Command) == "ran" or string.lower(Command) == "random" then
         Attempted = Commands[CMDRandom]
     end
 
@@ -110,9 +165,9 @@ do
         return
     end
 
-    local Ran, Err = pcall(function() Attempted.F(One) end)
+    local Ran, Err = pcall(function() Attempted.Function(Args) end)
 
     if Err then
-        print("ERROR! ".. tostring(Err))
+        print("ERROR RUNNING COMMAND!: ".. tostring(Err))
     end
 end
