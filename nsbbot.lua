@@ -1,5 +1,5 @@
 --// It's the version you ding dong
-local Version = "URMOM.1.2"
+local Version = "URMOM.1.3"
 
 --// Master table of Insults!
 local Tab = {
