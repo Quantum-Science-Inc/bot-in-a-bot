@@ -1,5 +1,5 @@
 --// It's the version you ding dong
-local Version = "URMOM.1.1.2"
+local Version = "URMOM.1.1.3"
 
 math.randomseed(os.time())
 math.random();
@@ -194,32 +194,37 @@ local Commands; Commands = {
         Function = function(Args)
             local Person = Join(Args)
             
-            print("Alright... I'm evaluating sir gaylord the first rn")
-            print("Ah yes okay mhm let's see")
-            print("Okay, result is uhm")
+            if Person ~= "" then
+                print("Alright... I'm evaluating sir gaylord the first rn")
+                print("Ah yes okay mhm let's see... You are ".. Person)
+                print("Okay, result is uhm")
 
-            local Per = math.random(0, 101)
+                local Per = math.random(0, 101)
 
-            print(tostring(Per) .."%")
+                print(tostring(Per) .."%")
 
-            if Per > 90 then
-                print("I'm calling ICE, hopefully you aren't mexican bitch")
-            end
+                if Per > 90 then
+                    print("I'm calling ICE, hopefully you aren't mexican bitch")
+                end
 
-            if Per > 55 and Per < 90 then
-                print("Wow okay there's no coming back from that pal, good luck with AIDs")
-            end
+                if Per > 55 and Per < 90 then
+                    print("Wow okay there's no coming back from that pal, good luck with AIDs")
+                end
 
-            if Per < 55 and Per > 20 then
-                print("Well we can send you to straight camp but I can't do much else than that")
-            end
+                if Per < 55 and Per > 20 then
+                    print("Well we can send you to straight camp but I can't do much else than that")
+                end
 
-            if Per > 0 and Per < 20 then
-                print("Hey a little ain't gay, no homo bro")
-            end
+                if Per > 0 and Per < 20 then
+                    print("Hey a little ain't gay, no homo bro")
+                end
 
-            if Per == 0 then
-                print("I salute you sir!")
+                if Per == 0 then
+                    print("I salute you sir!")
+                end
+            else
+                print("You brain washed commie, do you want me to measure you??? someone else??? random?? IDK")
+                print("I did measure you, it broke it because of how gay and STUPID you are")
             end
         end;
     };
