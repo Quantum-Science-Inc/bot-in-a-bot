@@ -1,5 +1,11 @@
 --// It's the version you ding dong
-local Version = "URMOM.1.1.1"
+local Version = "URMOM.1.1.2"
+
+math.randomseed(os.time())
+math.random();
+math.random();
+math.random();
+math.random();
 
 --// Master table of Insults!
 local Tab = {
@@ -179,6 +185,42 @@ local Commands; Commands = {
             print("I'm a bot written in LUA in god damn LUA fucking **LUA**")
             print("I'm restricted to printing and that's pretty much it")
             print("WTF did you think this did?")
+        end;
+    };
+
+    ["GayMeter"] = {
+        Alias = {"gaymeter";"howgay";"measuregay";};
+        Desc = "Scans a user and determines how fucking GAY they are";
+        Function = function(Args)
+            local Person = Join(Args)
+            
+            print("Alright... I'm evaluating sir gaylord the first rn")
+            print("Ah yes okay mhm let's see")
+            print("Okay, result is uhm")
+
+            local Per = math.random(0, 101)
+
+            print(tostring(Per) .."%")
+
+            if Per > 90 then
+                print("I'm calling ICE, hopefully you aren't mexican bitch")
+            end
+
+            if Per > 55 and Per < 90 then
+                print("Wow okay there's no coming back from that pal, good luck with AIDs")
+            end
+
+            if Per < 55 and Per > 20 then
+                print("Well we can send you to straight camp but I can't do much else than that")
+            end
+
+            if Per > 0 and Per < 20 then
+                print("Hey a little ain't gay, no homo bro")
+            end
+
+            if Per == 0 then
+                print("I salute you sir!")
+            end
         end;
     };
 };
