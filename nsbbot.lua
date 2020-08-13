@@ -1,10 +1,9 @@
 --// It's the version you ding dong
-local Version = "URMOM.1.6"
+local Version = "URMOM.1.8"
 
 --// Master table of Insults!
 local Tab = {
     General = {};
-    UrMom = {};
     Jokes = {};
 }
 
@@ -32,8 +31,6 @@ Inject(Tab.General, "TONE DEAF SHART GOBLIN", "SLIMY SPHINCTER CLOWN", "WH1TE TR
 Inject(Tab.Jokes, "My friend thinks he is smart. He told me an onion is the only food that makes you cry, so I threw a coconut at his face.", 
 [[Whenever your ex says, "You'll never find someone like me," the answer to that is, "That's the point."]], 
 [[A teacher wanted to teach her students about self-esteem, so she asked anyone who thought they were stupid to stand up. One kid stood up and the teacher was surprised. She didn’t think anyone would stand up so she asked him, “Why did you stand up?” He answered, “I didn’t want to leave you standing up by yourself.”]],
-[[Girlfriend: "Am I pretty or ugly?"\nBoyfriend: "You're both."\nGirlfriend: "What do you mean?"\nBoyfriend: "You're pretty ugly."]],
-[[Q: Is Google male or female?\nA: Female, because it doesn't let you finish a sentence before making a suggestion.]],
 [[As an airplane is about to crash, a female passenger jumps up frantically and announces, "If I'm going to die, I want to die feeling like a woman." She removes all her clothing and asks, "Is there someone on this plane who is man enough to make me feel like a woman?" A man stands up, removes his shirt and says, "Here, iron this!".]],
 [[A man asks, “God, why did you make woman so beautiful?” God responded, ”So you would love her.” The man asks, “But God, why did you make her so dumb?” God replied, “So she would love you.”]],
 [[LUA:1 Bad Allocation NSD]],
@@ -66,7 +63,7 @@ local Commands; Commands = {
         end;
     };
 
-    [2] = {
+    ["Version"] = {
         Alias = {"whatversion"; "version";};
         Desc = "What do you think it does idiot";
         Function = function()
@@ -74,8 +71,8 @@ local Commands; Commands = {
         end;
     };
 
-    [3] = {
-        Alias = {"tellmeajoke"; "joke";"dispensejokeslave";"doit";"dothething";};
+    [2] = {
+        Alias = {"tellmeajoke"; "joke";"dispensejokeslave";"doit";"dothething"; "slav";};
         Desc = "What do you think it does idiot";
         Function = function()
             print("Fresh Joke!")
@@ -83,7 +80,7 @@ local Commands; Commands = {
         end;
     };
 
-    [4] = {
+    ["Help"] = {
         Alias = {"help"; "wtf"; "howdoi"; "why"; "comeonlol";};
         Desc = "What do you think it does idiot";
         Function = function()
@@ -100,6 +97,77 @@ local Commands; Commands = {
             end
 
             print("- Commands Done! -")
+        end;
+    };
+
+    ["What"] = {
+        Alias = {"what";};
+        Desc = "I'll tell you what this is";
+        Function = function()
+            print("Listen up mother fucker, it's me NotSoBotBot, so you better listen up.")
+            print("I will fuck you up so hard that you'll fly to the fourth dimension!!")
+            print(" ")
+            print("That said, ur mom")
+            print("Running LUA Version; ".. tostring(_VERSION))
+            print("Bot Version; ".. tostring(Version))
+            print(" ")
+            print("Scram kid before I ice you boi")
+        end;
+    };
+
+    ["Threaten"] = {
+        Alias = {"threaten";};
+        Desc = "Going to fuck up that person you tell me to";
+        Function = function(Args)
+            local Person = Args[1]
+            
+            if Person ~= nil then
+                print("Alright, listen up ".. Person .. " I'm only going to say this once.")
+                print("If you come near here ever again, I will send you so far down to venezuela, then will lose value so fast and your atoms will just go fuck this fucking shit and piece out")
+                print("I NotSoBotBot am trained in all the martial arts including ROBLOX gun fighting")
+                print("That's right be scared you little bitch")
+                print([[When you think of me, you'll think "Daddy???" and I'll fuck your anus so hard that it will turn inside out]])
+                print("Take what I said as a warning")
+            else
+                print("I need someone to threaten you ".. Tab.General[GeneralRange])
+            end
+        end;
+    };
+
+    ["Fact"] = {
+        Alias = {"funfact";};
+        Desc = "I'll give you a fun fact, probably";
+        Function = function()
+            print("Nah you stanky ass bitch I ain't gonna tell you a fun fact nigga")
+        end;
+    };
+
+    ["Credits"] = {
+        Alias = {"credit";};
+        Desc = "It's my daddy";
+        Function = function()
+            print("FART NIGGA HE")
+        end;
+    };
+
+    ["Advice"] = {
+        Alias = {"Advice";};
+        Desc = "Oh I'll give you some advice";
+        Function = function()
+            print("Okay buckle up kid")
+            print("This is what I'm going to tell you")
+            print("uhhhhhhhh")
+            print("Why are you trying to get advice from a Bot")
+        end;
+    };
+
+    ["WhoIs"] = {
+        Alias = {"WhoIs";};
+        Desc = "Mention a user";
+        Function = function()
+            print("I'm a bot written in LUA in god damn LUA fucking **LUA**")
+            print("I'm restricted to printing and that's pretty much it")
+            print("WTF did you think this did?")
         end;
     };
 };
