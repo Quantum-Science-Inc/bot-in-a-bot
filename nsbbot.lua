@@ -1,5 +1,5 @@
 --// It's the version you ding dong
-local Version = "URMOM.1.1.3"
+local Version = "URMOM.1.1.4"
 
 math.randomseed(os.time())
 math.random();
@@ -138,53 +138,6 @@ local Commands; Commands = {
             else
                 print("I need someone to threaten you ".. Tab.General[GeneralRange])
             end
-        end;
-    };
-
-    ["Fact"] = {
-        Alias = {"funfact";};
-        Desc = "I'll give you a fun fact, probably";
-        Function = function()
-            print("Nah you stanky ass bitch I ain't gonna tell you a fun fact nigga")
-        end;
-    };
-
-    ["Credits"] = {
-        Alias = {"credit";};
-        Desc = "It's my daddy";
-        Function = function()
-            print("FART NIGGA HE")
-        end;
-    };
-
-    ["Advice"] = {
-        Alias = {"advice";};
-        Desc = "Oh I'll give you some advice";
-        Function = function()
-            print("Okay buckle up kid")
-            print("This is what I'm going to tell you")
-            print("uhhhhhhhh")
-            print("Why are you trying to get advice from a Bot")
-        end;
-    };
-
-    ["WhoIs"] = {
-        Alias = {"WhoIs";};
-        Desc = "Mention a user";
-        Function = function()
-            print("I'm a bot written in LUA in god damn LUA fucking **LUA**")
-            print("I'm restricted to printing and that's pretty much it")
-            print("WTF did you think this did?")
-        end;
-    };
-
-    ["Scam"] = {
-        Alias = {"scam";};
-        Desc = "Attempt to scam the mentioned user";
-        Function = function()
-            print("I'm a bot written in LUA in god damn LUA fucking **LUA**")
-            print("I'm restricted to printing and that's pretty much it")
-            print("WTF did you think this did?")
         end;
     };
 
