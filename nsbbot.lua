@@ -1,5 +1,5 @@
 --// It's the version you ding dong
-local Version = "URMOM.1.5"
+local Version = "URMOM.1.6"
 
 --// Master table of Insults!
 local Tab = {
@@ -9,9 +9,7 @@ local Tab = {
 }
 
 --// Admins
-local Admins = {
-
-}
+local Admins = {}
 
 --// I know I could have just added the Indexes but oh well
 local Inject = function(Table, ...)
@@ -81,7 +79,7 @@ local Commands; Commands = {
         Desc = "What do you think it does idiot";
         Function = function()
             print("Fresh Joke!")
-            print(Tab.General[JokeRange])
+            print(Tab.Jokes[JokeRange])
         end;
     };
 
