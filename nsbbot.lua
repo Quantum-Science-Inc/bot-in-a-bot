@@ -1,6 +1,7 @@
 --// It's the version you ding dong
-local Version = "URMOM.1.1.4"
+local Version = "URMOM.1.1.5"
 
+--// Seed the randoms
 math.randomseed(os.time())
 math.random();
 math.random();
@@ -9,40 +10,41 @@ math.random();
 
 --// Master table of Insults!
 local Tab = {
-    General = {};
-    Jokes = {};
+    General = {
+        "TONE DEAF SHART GOBLIN", "SLIMY SPHINCTER CLOWN", "WH1TE TRASH RECTUM PIRATE", "EL1TIST DOUCHE HAMMER1", "STUPID TURD TOOLBAG", 
+        "FART TRASHBAG", "INSECURE BITCH GOBLIN", "SLIMY DICK JOCKEY", "ID1OTIC SLVT PILOT", "WH1TE TRASH COCK WAFFLE",
+        "C0MMUN1ST NUT KNOB", "DUCKN0SE RECTUM CAPTAIN", "DUCKN0SE RECTUM CAPTAIN", "SMELLY BITCH TOOLBAG", "SHITTER RECEPTICLE", "BUTTHOLE TERRORIST", "PANDEMIC MASTER", "FUCKWIT LOBSTER", "COCK WIPE",
+        "PIPE HITTIN BANDIT", "BOLLOCKING TOES", "CUNTYBOLLOCK NINJA", "PRICK CHEESE", "DOUCHE HANDS", "BONER MAGNET", "PECKER BAGEL", "SNOT TOUCHER", "STANKY VAG BINDIPPER",
+        "SKANK DIDDLER", "ERECTION COCKTASTIC", "WAZZOCK BORE", "TURKEY .COM", "POOP SQUIRREL", "DUMB HANDLE", "TUMOR KISSER", "PUBIC BISCUIT", 
+        "CHOAD CANOE", "PILLOW BITING NARCISSIST", "ROTTING ZOMBIE MAGGOT FARM", "DICK BIKE", "POOP LOAD", "PORN ARTIST", "FANNY LORD", "SKANK TROMBONE", "BONER ROCKET", 
+        "yeast-tainted mulemelon", "zit-limbed bongdiddler", "weenerplug", "muffsocket", "quim-spotted slotbreeder", "apesponge", 
+        "camel-headed butterpoacher", "cumhugger", "tiny-tiny-wanged", "DRUG-LOVING ASS JOCKEY", "PIE-EATING PRICK HAMMER", "DRUG-LOVING C0CK CLOWN", "JACKALOPE SHIT TOOLBAG", "SLUTTY B0NER GOBLIN"
+    };
+    
+    Jokes = {
+        "My friend thinks he is smart. He told me an onion is the only food that makes you cry, so I threw a coconut at his face.", 
+        [[Whenever your ex says, "You'll never find someone like me," the answer to that is, "That's the point."]], 
+        [[A teacher wanted to teach her students about self-esteem, so she asked anyone who thought they were stupid to stand up. One kid stood up and the teacher was surprised. She didn’t think anyone would stand up so she asked him, “Why did you stand up?” He answered, “I didn’t want to leave you standing up by yourself.”]],
+        [[As an airplane is about to crash, a female passenger jumps up frantically and announces, "If I'm going to die, I want to die feeling like a woman." She removes all her clothing and asks, "Is there someone on this plane who is man enough to make me feel like a woman?" A man stands up, removes his shirt and says, "Here, iron this!".]],
+        [[A man asks, “God, why did you make woman so beautiful?” God responded, ”So you would love her.” The man asks, “But God, why did you make her so dumb?” God replied, “So she would love you.”]],
+        [[LUA:1 Bad Allocation NSD]],
+        [[Yo Mama is so dumb… she went to the dentist to get a Bluetooth.]],
+        [[Yo mama's so fat, it took me two buses and a train to get to her good side.]],
+        [[Yo mama's so fat, her car has stretch marks.]]
+    };
 }
 
---// Admins
-local Admins = {}
-
---// I know I could have just added the Indexes but oh well
-local Inject = function(Table, ...)
-    for Index, Thing in pairs({...}) do
-        Table[#Table + 1] = Thing
+--// Fix the Numeration on tables
+local Fix = function(Table)
+    local Ind = 1
+    for _, Element in pairs(Table) do
+        Table[Ind] = Element
+        Ind = Ind + 1
     end
 end
 
---// General Section
-Inject(Tab.General, "TONE DEAF SHART GOBLIN", "SLIMY SPHINCTER CLOWN", "WH1TE TRASH RECTUM PIRATE", "EL1TIST DOUCHE HAMMER1", "STUPID TURD TOOLBAG", 
-"FART TRASHBAG", "INSECURE BITCH GOBLIN", "SLIMY DICK JOCKEY", "ID1OTIC SLVT PILOT", "WH1TE TRASH COCK WAFFLE",
-"C0MMUN1ST NUT KNOB", "DUCKN0SE RECTUM CAPTAIN", "DUCKN0SE RECTUM CAPTAIN", "SMELLY BITCH TOOLBAG", "SHITTER RECEPTICLE", "BUTTHOLE TERRORIST", "PANDEMIC MASTER", "FUCKWIT LOBSTER", "COCK WIPE",
-"PIPE HITTIN BANDIT", "BOLLOCKING TOES", "CUNTYBOLLOCK NINJA", "PRICK CHEESE", "DOUCHE HANDS", "BONER MAGNET", "PECKER BAGEL", "SNOT TOUCHER", "STANKY VAG BINDIPPER",
-"SKANK DIDDLER", "ERECTION COCKTASTIC", "WAZZOCK BORE", "TURKEY .COM", "POOP SQUIRREL", "DUMB HANDLE", "TUMOR KISSER", "PUBIC BISCUIT", 
-"CHOAD CANOE", "PILLOW BITING NARCISSIST", "ROTTING ZOMBIE MAGGOT FARM", "DICK BIKE", "POOP LOAD", "PORN ARTIST", "FANNY LORD", "SKANK TROMBONE", "BONER ROCKET", 
-"yeast-tainted mulemelon", "zit-limbed bongdiddler", "weenerplug", "muffsocket", "quim-spotted slotbreeder", "apesponge", 
-"camel-headed butterpoacher", "cumhugger", "tiny-tiny-wanged", "DRUG-LOVING ASS JOCKEY", "PIE-EATING PRICK HAMMER", "DRUG-LOVING C0CK CLOWN", "JACKALOPE SHIT TOOLBAG", "SLUTTY B0NER GOBLIN")
-
---// Jokes LMAOOOOOO SO FUNNY HEHE ECKS DEE
-Inject(Tab.Jokes, "My friend thinks he is smart. He told me an onion is the only food that makes you cry, so I threw a coconut at his face.", 
-[[Whenever your ex says, "You'll never find someone like me," the answer to that is, "That's the point."]], 
-[[A teacher wanted to teach her students about self-esteem, so she asked anyone who thought they were stupid to stand up. One kid stood up and the teacher was surprised. She didn’t think anyone would stand up so she asked him, “Why did you stand up?” He answered, “I didn’t want to leave you standing up by yourself.”]],
-[[As an airplane is about to crash, a female passenger jumps up frantically and announces, "If I'm going to die, I want to die feeling like a woman." She removes all her clothing and asks, "Is there someone on this plane who is man enough to make me feel like a woman?" A man stands up, removes his shirt and says, "Here, iron this!".]],
-[[A man asks, “God, why did you make woman so beautiful?” God responded, ”So you would love her.” The man asks, “But God, why did you make her so dumb?” God replied, “So she would love you.”]],
-[[LUA:1 Bad Allocation NSD]],
-[[Yo Mama is so dumb… she went to the dentist to get a Bluetooth.]],
-[[Yo mama's so fat, it took me two buses and a train to get to her good side.]],
-[[Yo mama's so fat, her car has stretch marks.]])
+Fix(Tab.General)
+Fix(Tab.Jokes)
 
 --// Join the Args if split
 local Join = function(Table)
