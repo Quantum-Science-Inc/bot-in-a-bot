@@ -19,8 +19,6 @@ local Inject = function(Table, ...)
     for Index, Thing in pairs({...}) do
         Table[#Table + 1] = Thing
     end
-
-    print(#Table)
 end
 
 --// General Section
@@ -98,6 +96,8 @@ local GetCMD = function(St)
 end
 
 do
+    print("Ranin?")
+    
     local Attempted = GetCMD(CMD)
 
     if string.lower(CMD) == "ran" or string.lower(CMD) == "random" then
