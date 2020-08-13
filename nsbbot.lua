@@ -1,5 +1,5 @@
 --// It's the version you ding dong
-local Version = "URMOM.1.4"
+local Version = "URMOM.1.5"
 
 --// Master table of Insults!
 local Tab = {
@@ -80,7 +80,8 @@ local Commands; Commands = {
         Alias = {"tellmeajoke"; "joke";"dispensejokeslave";"doit";"dothething";};
         Desc = "What do you think it does idiot";
         Function = function()
-            print(Person .. " is a mother fucking ".. Tab.General[JokeRange])
+            print("Fresh Joke!")
+            print(Tab.General[JokeRange])
         end;
     };
 
