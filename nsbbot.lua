@@ -1,5 +1,5 @@
 --// It's the version you ding dong
-local Version = "URMOM.1.8"
+local Version = "URMOM.1.1.1"
 
 --// Master table of Insults!
 local Tab = {
@@ -55,8 +55,9 @@ local Commands; Commands = {
         Alias = {"insult"; "insultperson";};
         Desc = "Insult a person! YEET!!!";
         Function = function(Args)
-            if Args[1] ~= "" then
-                print(Args[1] .. " is a mother fucking ".. Tab.General[GeneralRange])
+            local Who = Join(Args)
+            if Who ~= "" then
+                print(Who .. " is a mother fucking ".. Tab.General[GeneralRange])
             else
                 print("You are a mother fucking ".. Tab.General[GeneralRange])
             end
@@ -123,7 +124,7 @@ local Commands; Commands = {
             
             if Person ~= nil then
                 print("Alright, listen up ".. Person .. " I'm only going to say this once.")
-                print("If you come near here ever again, I will send you so far down to venezuela, then will lose value so fast and your atoms will just go fuck this fucking shit and piece out")
+                print("If you come near here ever again, I will send you so far down to venezuela, then will lose value so fast and your atoms will just go fuck this fucking shit and peace out")
                 print("I NotSoBotBot am trained in all the martial arts including ROBLOX gun fighting")
                 print("That's right be scared you little bitch")
                 print([[When you think of me, you'll think "Daddy???" and I'll fuck your anus so hard that it will turn inside out]])
@@ -151,7 +152,7 @@ local Commands; Commands = {
     };
 
     ["Advice"] = {
-        Alias = {"Advice";};
+        Alias = {"advice";};
         Desc = "Oh I'll give you some advice";
         Function = function()
             print("Okay buckle up kid")
@@ -170,6 +171,16 @@ local Commands; Commands = {
             print("WTF did you think this did?")
         end;
     };
+
+    ["Scam"] = {
+        Alias = {"scam";};
+        Desc = "Attempt to scam the mentioned user";
+        Function = function()
+            print("I'm a bot written in LUA in god damn LUA fucking **LUA**")
+            print("I'm restricted to printing and that's pretty much it")
+            print("WTF did you think this did?")
+        end;
+    };
 };
 
 --// Get and match command to Alias
@@ -178,7 +189,7 @@ local GetCMD = function(String)
 
     local Search = function(Table)
         for NA, Str in pairs(Table.Alias) do
-            if Str == String then
+            if string.lower(Str) == String then
                 return true
             end
         end
